@@ -26,16 +26,25 @@ public class InputReader {
                 else if (nextLine.equals("RIGHT"))
                     robot.right();
                 else if (nextLine.startsWith("PLACE")) { //PLACE 0,0,NORTH
-                    String[] location = nextLine.split(" ")[1].split(",");
-                    robot.place(Integer.parseInt(String.valueOf(location[0])),
-                            Integer.parseInt(String.valueOf(location[1])),
-                            location[2]);
+                    checkPlaceOrder(nextLine);
                 } else
                     throw new IllegalArgumentException("incorrect input.");
-            } catch (IllegalArgumentException | IllegalStateException ex) {
+            } catch (IllegalArgumentException | IllegalStateException | ArrayIndexOutOfBoundsException ex) {
                 System.out.println(ex.getMessage() + "\nplay again!");
             }
         }
+    }
+
+    private void checkPlaceOrder(String nextLine) {
+        String[] firstSplitWithSpace = nextLine.split(" ");
+        if (!firstSplitWithSpace[0].equals("PLACE"))
+            throw new IllegalArgumentException("enter correct order");
+        if (firstSplitWithSpace.length == 1)
+            throw new ArrayIndexOutOfBoundsException("initial position after PLACE order");
+        String[] location = firstSplitWithSpace[1].split(",");
+        robot.place(Integer.parseInt(String.valueOf(location[0])),
+                Integer.parseInt(String.valueOf(location[1])),
+                location[2]);
     }
 
 }
