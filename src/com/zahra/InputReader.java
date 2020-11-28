@@ -15,6 +15,9 @@ public class InputReader {
         while (true) {
             try {
                 String nextLine = scanner.nextLine().toUpperCase();
+                if (nextLine.equals("EXIT")) {
+                    break;
+                }
                 if (nextLine.equals("REPORT")) {
                     String report = robot.report();
                     System.out.println(report);
