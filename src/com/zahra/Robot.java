@@ -12,12 +12,12 @@ public class Robot {
         this.initial = false;
     }
 
-    public void place(int x, int y, String f) {
+    public void place(int x, int y, String direction) {
         if (x < 0 || x > 4 || y < 0 || y > 4) {
             throw new IllegalArgumentException("enter x and y between [0,4]");
         }
         for (int i = 0; i < directions.length; i++)
-            if (this.directions[i].equals(f))
+            if (this.directions[i].equals(direction))
                 this.directionPointer = i;
         if (this.directionPointer == -1)
             throw new IllegalArgumentException("enter valid direction.");
