@@ -17,7 +17,7 @@ public class Robot {
             throw new IllegalArgumentException("enter x and y between [0,4]");
         }
         for (int i = 0; i < directions.length; i++)
-            if (this.directions[i].equals(direction))
+            if (this.directions[i].equalsIgnoreCase(direction))
                 this.directionPointer = i;
         if (this.directionPointer == -1)
             throw new IllegalArgumentException("enter valid direction.");
