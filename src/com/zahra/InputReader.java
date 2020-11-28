@@ -12,6 +12,7 @@ public class InputReader {
     }
 
     public void enterInput() {
+        System.out.println(gameGuide());
         while (true) {
             try {
                 String nextLine = scanner.nextLine().toUpperCase();
@@ -32,7 +33,7 @@ public class InputReader {
                 } else
                     throw new IllegalArgumentException("incorrect input.");
             } catch (IllegalArgumentException | IllegalStateException | ArrayIndexOutOfBoundsException ex) {
-                System.out.println(ex.getMessage() + "\nplay again!");
+                System.out.println(ex.getMessage() + "\ngo on!");
             }
         }
     }
@@ -47,6 +48,22 @@ public class InputReader {
         robot.place(Integer.parseInt(String.valueOf(location[0])),
                 Integer.parseInt(String.valueOf(location[1])),
                 location[2]);
+    }
+
+    private String gameGuide(){
+        String gameGuide="please select your operation as follows:\n" +
+                "\"move\" for move Robot in assigned direction\n" +
+                "\"left\" for turn Robot to left\n"+
+                "\"right\" for turn Robot to right\n"+
+                "\"report\" for see Robot position and direction\n"+
+                "\"exit\" for quit Robot Game \n"+
+                "\"place\" for put robot in one position,\n" +
+                "write this command in this format: place x,y,direction, \n" +
+                "then Robot placed in x,y,direction position,\n" +
+                "x and y must be between 0 to 4 \n" +
+                "and direction must be one of the north,south,east,west\n" +
+                "NOTE that for start game you must select place operation at the first time.";
+        return gameGuide;
     }
 
 }
