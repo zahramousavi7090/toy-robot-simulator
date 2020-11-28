@@ -18,7 +18,6 @@ public class InputReader {
                 if (nextLine.equals("REPORT")) {
                     String report = robot.report();
                     System.out.println(report);
-                    break;
                 } else if (nextLine.equals("MOVE"))
                     robot.move();
                 else if (nextLine.equals("LEFT"))
